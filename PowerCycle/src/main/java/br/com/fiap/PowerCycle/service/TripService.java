@@ -5,9 +5,11 @@ import java.math.RoundingMode;
 import java.sql.SQLException;
 import java.util.List;
 
+import br.com.fiap.PowerCycle.dao.TripDAOImpl;
 import br.com.fiap.PowerCycle.exception.TripException;
 import br.com.fiap.PowerCycle.model.*;
 import br.com.fiap.PowerCycle.response.TripNotFoundException;
+import br.com.fiap.PowerCycle.util.VehicleDataFetcher;
 
 public class TripService {
 
