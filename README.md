@@ -19,9 +19,9 @@
 
 ## 🔢 Funcionalidades
 
-- Cadastro de viagens com dados como distância percorrida, consumo total e energia recuperada.
-- Relatórios detalhados sobre energia recuperada, economia e tempo economizado na recarga.
-- APIs RESTful para gerenciar viagens e consultar dados de recuperação de energia.
+- Cadastro de viagens com dados coletados automaticamente por dispositivos IoT instalados no veículo.
+- Consulta a informações de viagens e relatórios detalhados no aplicativo.
+- Uso de uma API externa baseada no site [EV Database](https://ev-database.org/) para obter informações sobre bateria, consumo e eficiência dos veículos.
 
 ## 🔧 Cálculos Realizados
 
@@ -45,15 +45,26 @@
 - `GET /api/v1/trips/{tripId}`: Retorna os detalhes de uma viagem específica.
 - `GET /api/v1/recovery/{tripId}`: Lista recuperações de energia associadas a uma viagem.
 
-## 📊 Diagramas
+## 📊 Diagrama de Fluxo
 
-- **Diagrama de Classes**: Representa as relações entre entidades e as principais interações no sistema.
-- **Diagrama Entidade-Relacionamento (DER)**: Define as relações e estrutura das tabelas no banco de dados.
+```plaintext
+POST /api/v1/trips
+    |
+    +--> Busca dados do veículo na API externa (EV Database)
+    |
+    +--> Realiza cálculos específicos (energia recuperada, economia, etc.)
+    |
+    +--> Armazena os resultados no banco de dados
+```
 
 ## 📈 Exemplos de Relatórios
 
 - **Autonomia Extra**: `Energia Recuperada (kWh) ÷ Consumo Médio (kWh/km)`
 - **Tempo Economizado na Recarga**: `Energia Recuperada ÷ Potência de Carregamento (kW)`
+
+## 📲 Coleta de Dados
+
+Os dados são gerados automaticamente por dispositivos IoT instalados no veículo. Esses dispositivos enviam informações como distância percorrida, consumo de energia e recuperação diretamente para a aplicação. O usuário pode acessar o aplicativo para visualizar viagens realizadas e consultar a economia obtida.
 
 ## 🤝 Contribuição
 
@@ -69,3 +80,9 @@ Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar
 ## 📜 Licença
 
 Este projeto está licenciado sob a [MIT License](LICENSE).
+
+---
+
+Este projeto foi desenvolvido como projeto de conclusão de semestre da matéria **DOMAIN DRIVEN DESIGN – JAVA** da faculdade FIAP, no curso de Engenharia de Software.
+
+
